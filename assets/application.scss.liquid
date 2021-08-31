@@ -1,3 +1,69 @@
 // Put your styles in this file.
 // Shopify will compile SCSS/SASS on each deploy.
 // Note: "@import" rules aren’t supported.
+
+$color-green: #045a04;
+$color-red: #750606;
+
+body, html {
+    margin: 0;
+}
+* {
+    transition: all 0.2s;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Prata', serif;
+}
+ p {
+    font-family: 'Spartan', sans-serif;
+ }
+
+ion-icon {
+    font-size: 20px;
+    color: #303030;
+    &:hover {
+        opacity: .5;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 165px;
+
+    a {
+        font-size: 12px;
+        line-height: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-right: 34px;
+        font-family: 'Spartan', sans-serif;
+        &:hover {
+            opacity: .5;
+        }
+
+        &:visited {
+            color: #303030;
+        }
+    }
+}
+
+.nav-menu-left {
+    a {
+        margin-right: 48px;
+    }
+}
+
+.nav-menu-right {
+    a {
+        margin-left: 48px;
+    }
+}

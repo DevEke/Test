@@ -6,13 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Spartan&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.scss.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body>
-
+  <nav className="nav__wrapper">
+    <div className="nav-menu__logo">   
+  
+    </div> 
+    <div className="nav-menu">
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
@@ -24,21 +31,29 @@
       <a href="{{ link.url }}">{{ link.title }}</a>
     {% endif %}
   {% endfor %}
-
-  <a href="/cart">cart</a>
+  <a href="/cart">
+    <ion-icon name="bag-handle-outline"></ion-icon>
+  </a>
 
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
-      <a href="/account">account</a>
+      <a href="/account">
+        <ion-icon
+        name="person-circle-outline"></ion-icon>
+      </a>
       {{ 'log out'  | customer_logout_link }}
     {% else %}
       {{ 'log in ' | customer_login_link }}
       {{ 'register' | customer_register_link }}
     {% endif %}
   {% endif %}
-
+  </div>
+  
+  </nav>
   <main role="main">
     {{ content_for_layout }}
   </main>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
